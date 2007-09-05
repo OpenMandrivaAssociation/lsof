@@ -2,7 +2,7 @@
 
 Summary:	Lists files open by processes
 Name:		lsof
-Version:	4.77
+Version:	4.78
 Release:	%mkrel 1
 License:	Free
 Url:		ftp://vic.cc.purdue.edu/pub/tools/unix/lsof/
