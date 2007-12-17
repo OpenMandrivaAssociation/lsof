@@ -10,7 +10,6 @@ Group:		Monitoring
 Source0:	ftp://vic.cc.purdue.edu/pub/tools/unix/%name/%dname.tar.bz2
 Patch0:		lsof_4.64-perl-example-fix.patch
 Patch1:		lsof_4.60-has-security.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{version}-buildroot
 
 %description
 Lsof's name stands for LiSt Open Files, and it does just that. It lists
