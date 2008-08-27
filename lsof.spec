@@ -5,9 +5,9 @@ Name:		lsof
 Version:	4.78
 Release:	%mkrel 4
 License:	Free
-Url:		ftp://vic.cc.purdue.edu/pub/tools/unix/lsof/
+Url:		ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof
 Group:		Monitoring
-Source0:	ftp://vic.cc.purdue.edu/pub/tools/unix/%name/%dname.tar.bz2
+Source0:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2
 Patch0:		lsof_4.64-perl-example-fix.patch
 Patch1:		lsof_4.60-has-security.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{version}-buildroot
