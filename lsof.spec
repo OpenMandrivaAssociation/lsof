@@ -2,12 +2,13 @@
 
 Summary:	Lists files open by processes
 Name:		lsof
-Version:	4.78
-Release:	%mkrel 4
+Version:	4.80
+Release:	%mkrel 1
 License:	Free
 Url:		ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof
 Group:		Monitoring
 Source0:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2
+Source1:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2.sig
 Patch0:		lsof_4.64-perl-example-fix.patch
 Patch1:		lsof_4.60-has-security.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{version}-buildroot
