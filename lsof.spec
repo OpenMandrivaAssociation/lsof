@@ -3,7 +3,7 @@
 Summary:	Lists files open by processes
 Name:		lsof
 Version:	4.81
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	Free
 Url:		ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof
 Group:		Monitoring
@@ -29,17 +29,18 @@ system.
 [ -d %{dname}.linux -a ! -d %{dname} ] && \
 	mv %{dname}.linux %{dname}
 [ -d %{dname}_src ] && cd %{dname}_src
+
 %patch0 -p1
 %patch1 -p1
 
 %build
 [ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src
 
-LINUX_BASE=/proc
-export LINUX_BASE
-./Configure -n linux
+LINUX_BASE=/proc LSOF_LDFLAGS="%{ldflags}" ./Configure -n linux
 
-%make DEBUG="$RPM_OPT_FLAGS"
+find -name Makefile | xargs perl -pi -e "s|^CFGL=.*|CFGL=%{ldflags} -L./lib -llsof|g"
+
+%make DEBUG="%{optflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -55,5 +56,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{dname}/00*
 %attr(0755,root,kmem) %{_sbindir}/%{name}
 %{_mandir}/man8/lsof.8*
-
-
