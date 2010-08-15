@@ -2,8 +2,8 @@
 
 Summary:	Lists files open by processes
 Name:		lsof
-Version:	4.83
-Release:	%mkrel 2
+Version:	4.84
+Release:	%mkrel 1
 License:	Free
 Url:		ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof
 Group:		Monitoring
@@ -43,13 +43,13 @@ find -name Makefile | xargs perl -pi -e "s|^CFGL=.*|CFGL=%{ldflags} -L./lib -lls
 %make DEBUG="%{optflags}"
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 [ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src
-install -s %{name} -D $RPM_BUILD_ROOT%{_sbindir}/%{name}
-install -m644 lsof.8 -D $RPM_BUILD_ROOT%{_mandir}/man8/lsof.8
+install -s %{name} -D %{buildroot}%{_sbindir}/%{name}
+install -m644 lsof.8 -D %{buildroot}%{_mandir}/man8/lsof.8
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(644,root,root,755)
