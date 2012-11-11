@@ -1,0 +1,90 @@
+diff -Naurp lsof_4.81_src/scripts/big_brother.perl5 lsof_4.81_src.oden/scripts/big_brother.perl5
+--- lsof_4.81_src/scripts/big_brother.perl5	2001-11-12 18:40:45.000000000 +0100
++++ lsof_4.81_src.oden/scripts/big_brother.perl5	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ #+##############################################################################
+ #                                                                              #
+ # File: big_brother.perl                                                       #
+diff -Naurp lsof_4.81_src/scripts/count_pf.perl lsof_4.81_src.oden/scripts/count_pf.perl
+--- lsof_4.81_src/scripts/count_pf.perl	2001-11-12 18:40:55.000000000 +0100
++++ lsof_4.81_src.oden/scripts/count_pf.perl	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # count_pf.perl-- run lsof in repeat mode and count processes and
+ #		  files
+diff -Naurp lsof_4.81_src/scripts/count_pf.perl5 lsof_4.81_src.oden/scripts/count_pf.perl5
+--- lsof_4.81_src/scripts/count_pf.perl5	2001-11-12 18:41:02.000000000 +0100
++++ lsof_4.81_src.oden/scripts/count_pf.perl5	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # count_pf.perl5 -- run lsof in repeat mode and count processes and
+ #		    files
+diff -Naurp lsof_4.81_src/scripts/identd.perl5 lsof_4.81_src.oden/scripts/identd.perl5
+--- lsof_4.81_src/scripts/identd.perl5	2001-11-12 18:41:10.000000000 +0100
++++ lsof_4.81_src.oden/scripts/identd.perl5	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ ###################################################################
+ # identd.perl5 : An implementation of RFC 1413 Ident Server
+ #                using Vic Abell's lsof.
+diff -Naurp lsof_4.81_src/scripts/idrlogin.perl lsof_4.81_src.oden/scripts/idrlogin.perl
+--- lsof_4.81_src/scripts/idrlogin.perl	2001-11-18 13:21:00.000000000 +0100
++++ lsof_4.81_src.oden/scripts/idrlogin.perl	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # $Id: idrlogin.perl,v 1.5 2001/11/18 12:20:46 abe Exp $
+ #
+diff -Naurp lsof_4.81_src/scripts/idrlogin.perl5 lsof_4.81_src.oden/scripts/idrlogin.perl5
+--- lsof_4.81_src/scripts/idrlogin.perl5	2001-11-18 13:21:01.000000000 +0100
++++ lsof_4.81_src.oden/scripts/idrlogin.perl5	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # $Id: idrlogin.perl5,v 1.5 2001/11/18 12:20:46 abe Exp $
+ #
+diff -Naurp lsof_4.81_src/scripts/list_NULf.perl5 lsof_4.81_src.oden/scripts/list_NULf.perl5
+--- lsof_4.81_src/scripts/list_NULf.perl5	2000-07-14 19:04:03.000000000 +0200
++++ lsof_4.81_src.oden/scripts/list_NULf.perl5	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # $Id: list_NULf.perl5,v 1.5 2000/07/14 17:03:37 abe Exp $
+ #
+diff -Naurp lsof_4.81_src/scripts/list_fields.perl lsof_4.81_src.oden/scripts/list_fields.perl
+--- lsof_4.81_src/scripts/list_fields.perl	2000-07-14 19:04:04.000000000 +0200
++++ lsof_4.81_src.oden/scripts/list_fields.perl	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl4
++#!/usr/bin/perl4
+ #
+ # $Id: list_fields.perl,v 1.5 2000/07/14 17:03:37 abe Exp $
+ #
+diff -Naurp lsof_4.81_src/scripts/shared.perl5 lsof_4.81_src.oden/scripts/shared.perl5
+--- lsof_4.81_src/scripts/shared.perl5	2001-11-18 13:21:03.000000000 +0100
++++ lsof_4.81_src.oden/scripts/shared.perl5	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # $Id: shared.perl5,v 1.4 2001/11/18 12:20:46 abe Exp $
+ #
+diff -Naurp lsof_4.81_src/scripts/watch_a_file.perl lsof_4.81_src.oden/scripts/watch_a_file.perl
+--- lsof_4.81_src/scripts/watch_a_file.perl	2001-11-12 18:41:44.000000000 +0100
++++ lsof_4.81_src.oden/scripts/watch_a_file.perl	2008-12-21 17:46:48.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # watch_a_file.perl -- use lsof -F output to watch a specific file
+ #		       (or file system)
