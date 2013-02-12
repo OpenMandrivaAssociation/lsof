@@ -46,7 +46,7 @@ LINUX_BASE=/proc LSOF_LDFLAGS="%{ldflags}" ./Configure -n linux
 
 %install
 [ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src
-install -s %{name} -D %{buildroot}%{_sbindir}/%{name}
+install %{name} -D %{buildroot}%{_sbindir}/%{name}
 install -m644 lsof.8 -D %{buildroot}%{_mandir}/man8/lsof.8
 
 %files
