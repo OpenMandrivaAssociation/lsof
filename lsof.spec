@@ -2,7 +2,7 @@
 
 Summary:	Lists files open by processes
 Name:		lsof
-Version:	4.86
+Version:	4.87
 Release:	1
 License:	Free
 Url:		ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof
@@ -11,7 +11,7 @@ Source0:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2
 Source1:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2.sig
 Patch0:		lsof_4.64-perl-example-fix.patch
 Patch1:		lsof_4.60-has-security.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{version}-buildroot
+BuildRequires:	pkgconfig(libtirpc)
 
 %description
 Lsof's name stands for LiSt Open Files, and it does just that. It lists
@@ -38,21 +38,16 @@ system.
 
 LINUX_BASE=/proc LSOF_LDFLAGS="%{ldflags}" ./Configure -n linux
 
-find -name Makefile | xargs perl -pi -e "s|^CFGL=.*|CFGL=%{ldflags} -L./lib -llsof|g"
+#find -name Makefile | xargs perl -pi -e "s|^CFGL=.*|CFGL=%{ldflags} -L./lib -llsof -l|g"
 
 %make DEBUG="%{optflags}"
 
 %install
-rm -rf %{buildroot}
 [ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src
 install -s %{name} -D %{buildroot}%{_sbindir}/%{name}
 install -m644 lsof.8 -D %{buildroot}%{_mandir}/man8/lsof.8
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(644,root,root,755)
 %doc %{dname}/00*
 %attr(0755,root,kmem) %{_sbindir}/%{name}
 %{_mandir}/man8/lsof.8*
