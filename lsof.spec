@@ -11,6 +11,7 @@ Source0:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2
 Source1:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2.sig
 Patch0:		lsof_4.64-perl-example-fix.patch
 Patch1:		lsof_4.60-has-security.patch
+Patch2:		lsof_4.87-libtirpc.patch
 BuildRequires:	pkgconfig(libtirpc)
 
 %description
@@ -32,6 +33,7 @@ system.
 
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1 -b .tirpc~
 
 %build
 [ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src

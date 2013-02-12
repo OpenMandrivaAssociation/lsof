@@ -1,0 +1,11 @@
+--- lsof_4.87_src/Configure~	2013-02-13 00:30:56.663110155 +0100
++++ lsof_4.87_src/Configure	2013-02-13 00:31:02.465179804 +0100
+@@ -5425,7 +5425,7 @@ echo "CFGF=	$LSOF_CFGF" >> $LSOF_MKFC
+ if test "X$LSOF_LIB_NO" = "X"	# {
+ then
+   echo "" >> $LSOF_MKFC
+-  echo "CFGL=	$LSOF_FCFGL -L./$LSOF_LIB -llsof $LSOF_CFGL" >> $LSOF_MKFC
++  echo "CFGL=	$LSOF_FCFGL -L./$LSOF_LIB -llsof -ltirpc $LSOF_CFGL" >> $LSOF_MKFC
+ fi	# }
+ echo "" >> $LSOF_MKFC
+ if test "X$LSOF_DEBUG" = "X"	# {
