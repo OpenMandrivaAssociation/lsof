@@ -38,7 +38,7 @@ system.
 %build
 [ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src
 
-LINUX_BASE=/proc LSOF_LDFLAGS="%{ldflags}" ./Configure -n linux
+LSOF_CC=%{__cc} LINUX_BASE=/proc LSOF_LDFLAGS="%{ldflags}" ./Configure -n linux
 
 #find -name Makefile | xargs perl -pi -e "s|^CFGL=.*|CFGL=%{ldflags} -L./lib -llsof -l|g"
 
