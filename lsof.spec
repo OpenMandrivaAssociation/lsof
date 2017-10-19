@@ -3,7 +3,7 @@
 Summary:	Lists files open by processes
 Name:		lsof
 Version:	4.89
-Release:	1
+Release:	2
 License:	Free
 Url:		ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof
 Group:		Monitoring
@@ -46,10 +46,13 @@ LSOF_CC=%{__cc} LINUX_BASE=/proc LSOF_LDFLAGS="%{ldflags}" ./Configure -n linux
 
 %install
 [ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src
-install %{name} -D %{buildroot}%{_sbindir}/%{name}
+install %{name} -D %{buildroot}%{_bindir}/%{name}
 install -m644 lsof.8 -D %{buildroot}%{_mandir}/man8/lsof.8
+mkdir -p %{buildroot}%{_sbindir}
+ln -s ../bin/%{name} %{buildroot}%{_sbindir}/
 
 %files
 %doc %{dname}/00*
-%attr(0755,root,kmem) %{_sbindir}/%{name}
+%attr(0755,root,kmem) %{_bindir}/%{name}
+%{_sbindir}/%{name}
 %{_mandir}/man8/lsof.8*
