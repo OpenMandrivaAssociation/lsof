@@ -3,7 +3,7 @@
 Summary:	Lists files open by processes
 Name:		lsof
 Version:	4.89
-Release:	2
+Release:	3
 License:	Free
 Url:		ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof
 Group:		Monitoring
