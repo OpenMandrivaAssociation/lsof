@@ -1,17 +1,14 @@
-%define dname %{name}_%version
+%define dname %{name}_%{version}
 
 Summary:	Lists files open by processes
 Name:		lsof
-Version:	4.89
-Release:	4
+Version:	4.93.2
+Release:	1
 License:	Free
-Url:		ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof
 Group:		Monitoring
-Source0:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2
-Source1:	ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/%dname.tar.bz2.sig
-Patch0:		lsof_4.64-perl-example-fix.patch
-Patch1:		lsof_4.60-has-security.patch
-Patch2:		lsof_4.87-libtirpc.patch
+Url:		https://people.freebsd.org/~abe/
+Source0:	https://github.com/lsof-org/lsof/archive/%{version}.tar.gz
+BuildRequires:	pkgconfig(libselinux)
 BuildRequires:	pkgconfig(libtirpc)
 
 %description
@@ -20,39 +17,24 @@ information about files that are open by the processes running on a UNIX
 system.
 
 %prep
-%setup -q -c -n %{dname}
+%setup -q
+%autopatch -p1
 
-#
-# Sort out whether this is the wrapped or linux specific tar ball.
-#
-[ -d %{dname} ] && cd %{dname}
-[ -f %{dname}_src.tar ] && tar xf %{dname}_src.tar
-[ -d %{dname}.linux -a ! -d %{dname} ] && \
-	mv %{dname}.linux %{dname}
-[ -d %{dname}_src ] && cd %{dname}_src
-
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1 -b .tirpc~
 
 %build
-[ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src
-
-LSOF_CC=%{__cc} LINUX_BASE=/proc LSOF_LDFLAGS="%{ldflags}" ./Configure -n linux
-
-#find -name Makefile | xargs perl -pi -e "s|^CFGL=.*|CFGL=%{ldflags} -L./lib -llsof -l|g"
-
-%make DEBUG="%{optflags}" CC="%{__cc} %{optflags}"
+./Configure -n linux
+%make_build DEBUG="%{optflags} -I/usr/include/tirpc" LSOF_CC="%{__cc}" CFGL="%{ldflags} -L./lib -llsof -lselinux -ltirpc"
+# rebase to 4.93 introduced change in Lsof.8 with unhandled .so inclusion
+soelim -r Lsof.8 > lsof.1
 
 %install
-[ -d %{dname}/%{dname}_src ] && cd %{dname}/%{dname}_src
-install %{name} -D %{buildroot}%{_bindir}/%{name}
-install -m644 lsof.8 -D %{buildroot}%{_mandir}/man8/lsof.8
-mkdir -p %{buildroot}%{_sbindir}
-ln -s ../bin/%{name} %{buildroot}%{_sbindir}/
+mkdir -p ${RPM_BUILD_ROOT}%{_bindir}
+install -p -m 0755 lsof ${RPM_BUILD_ROOT}%{_bindir}
+mkdir -p ${RPM_BUILD_ROOT}%{_mandir}/man1
+install -p -m 0644 lsof.1 ${RPM_BUILD_ROOT}%{_mandir}/man1/lsof.1
 
 %files
-%doc %{dname}/00*
-%attr(0755,root,kmem) %{_bindir}/%{name}
-%{_sbindir}/%{name}
-%{_mandir}/man8/lsof.8*
+%doc 00README 00CREDITS 00FAQ 00LSOF-L 00QUICKSTART
+%{_bindir}/lsof
+%{_mandir}/man*/*
+
