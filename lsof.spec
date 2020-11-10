@@ -10,6 +10,8 @@ Url:		https://people.freebsd.org/~abe/
 Source0:	https://github.com/lsof-org/lsof/archive/%{version}.tar.gz
 BuildRequires:	pkgconfig(libselinux)
 BuildRequires:	pkgconfig(libtirpc)
+# For soelim
+BuildRequires:	groff
 
 %description
 Lsof's name stands for LiSt Open Files, and it does just that. It lists
