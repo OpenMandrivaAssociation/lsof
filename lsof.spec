@@ -2,7 +2,7 @@
 
 Summary:	Lists files open by processes
 Name:		lsof
-Version:	4.96.5
+Version:	4.98.0
 Release:	1
 License:	Free
 Group:		Monitoring
