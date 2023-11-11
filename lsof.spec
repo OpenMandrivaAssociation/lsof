@@ -2,8 +2,8 @@
 
 Summary:	Lists files open by processes
 Name:		lsof
-Version:	4.98.0
-Release:	2
+Version:	4.99.0
+Release:	1
 License:	Free
 Group:		Monitoring
 Url:		https://people.freebsd.org/~abe/
